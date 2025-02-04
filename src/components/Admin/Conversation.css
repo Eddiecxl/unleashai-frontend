@@ -1,0 +1,132 @@
+.conversation-page {
+    padding: 20px;
+}
+
+.conversation-page h1 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+    padding-top: 70px;
+}
+
+.conversation-page table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.conversation-page th, .conversation-page td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    max-width: 200px; /* Prevent content overflow */
+    white-space: normal;
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Backward compatibility */
+    text-overflow: clip; /* Remove ellipsis if added before */
+}
+
+.conversation-page th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
+.conversation-page tr:hover {
+    background-color: #f9fafb;
+}
+
+.conversation-page .expand-button {
+    cursor: pointer;
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.expanded-row {
+    background-color: #f9fafb;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.details-container {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden; /* Prevent content overflow */
+    word-wrap: break-word; /* Ensure text wraps */
+    overflow-wrap: break-word; /* Modern browsers support */
+}
+
+/* Make the search row flex */
+.search-row {
+    display: flex;
+    gap: 15px; /* Add spacing between boxes */
+    align-items: center;
+    flex-wrap: wrap; /* Ensure responsiveness */
+    margin-bottom: 20px; /* Add spacing below the search section */
+    
+}
+
+/* Each search box styles */
+.search-box {
+    display: flex;
+    flex-direction: column; /* Labels above inputs */
+    gap: 10px; /* Spacing between label and input */
+}
+
+/* Adjust input fields to be consistent */
+.search-box input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    width: 300px;
+}
+
+.copy-icon {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.copy-icon:hover {
+    color: #1d4ed8;
+}
+
+
+.refresh-button{
+    background-color: #10b981;
+    color: #fff;
+    border: none;
+    padding: 8px 25px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.refresh-button:hover {
+    background-color: #005a9e;
+}
+
+
+.wrap-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.7;
+    color: inherit; /* Keep inherited color */
+}

@@ -1,0 +1,292 @@
+/* General About Us Page Styling */
+.aboutus-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #fbc2eb, #ff9a9e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating Particles Animation */
+.aboutus-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+  background-size: 20px 20px;
+  animation: floatParticles 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(50%);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Header Section */
+.aboutus-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutus-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.aboutus-header p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 20px auto;
+  color: #555;
+  animation: slideIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Story Section */
+.aboutus-story {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutus-story h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aboutus-story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #555;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section */
+.aboutus-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Interactive Card Design */
+.aboutus-row {
+  width: 220px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aboutus-row:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.aboutus-row.active {
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+.aboutus-row-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.aboutus-row.active .aboutus-row-inner {
+  transform: rotateY(180deg);
+}
+
+.aboutus-row-front,
+.aboutus-row-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.aboutus-row-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid rgba(0, 114, 255, 0.2);
+}
+
+.aboutus-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #0072ff;
+}
+
+.aboutus-role {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.aboutus-quote {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* Contact Section */
+.aboutus-contact {
+  text-align: center;
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutus-contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aboutus-contact p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutus-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .aboutus-header p {
+    font-size: 1rem;
+  }
+
+  .aboutus-story h2 {
+    font-size: 2rem;
+  }
+
+  .aboutus-story p {
+    font-size: 1rem;
+  }
+
+  .aboutus-row {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+
+  .aboutus-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .aboutus-name {
+    font-size: 1.2rem;
+  }
+
+  .aboutus-role {
+    font-size: 0.9rem;
+  }
+
+  .aboutus-quote {
+    font-size: 0.8rem;
+  }
+
+  .aboutus-contact h2 {
+    font-size: 2rem;
+  }
+
+  .aboutus-contact p {
+    font-size: 1rem;
+  }
+}

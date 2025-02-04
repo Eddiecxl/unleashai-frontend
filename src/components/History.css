@@ -1,0 +1,140 @@
+/* History Page */
+.history-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: linear-gradient(150deg, #aab1be, #25465f);
+  min-height: 100vh;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Header Section */
+.history-header {
+  text-align: center;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.history-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.history-header p {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+}
+
+/* Snake Path */
+.snake-path {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 1000px;
+  margin: 50px auto;
+}
+
+.path-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+.path-line svg {
+  width: 100%;
+  height: 100%;
+  stroke: #0077ff;
+  stroke-width: 4px;
+  fill: none;
+}
+
+/* Milestones */
+.milestone {
+  position: absolute;
+  background: white;
+  border: 4px solid #0077ff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #0077ff;
+  text-align: center;
+  z-index: 2;
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone:hover {
+  transform: scale(1.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip for Milestone */
+.milestone-tooltip {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.milestone:hover .milestone-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.modal h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.modal p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Blur Background */
+.blurred {
+  filter: blur(5px);
+}

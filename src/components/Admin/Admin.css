@@ -1,0 +1,91 @@
+.admin-dashboard h1 {
+    padding-top: 70px;
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.admin-dashboard p {
+    font-size: 1.2rem;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Info Boxes */
+.info-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-box {
+    flex: 1;
+    background-color: #f3f4f6;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.info-box h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 1.5rem;
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* Graphs Section */
+.graphs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.graph-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.graph-container h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.favorite-questions-section {
+    background-color: #f9fafb;
+    padding: 40px;
+    margin: 30px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.favorite-questions-section h2 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.favorite-questions-section p {
+    font-size: 1.2rem;
+    color: #4b5563;
+    margin-bottom: 20px;
+}
+
+.favorite-questions-chart {
+    height: 500px;
+}
+

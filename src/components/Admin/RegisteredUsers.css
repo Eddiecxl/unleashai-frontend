@@ -1,0 +1,166 @@
+/* Ensure the content aligns with the sidebar */
+
+/* Content container aligned to sidebar */
+
+
+/* Scope all styles under .registered-users */
+
+
+
+.add-button{
+    background-color: #10b981;
+    color: #fff;
+    border: none;
+    padding: 8px 25px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    margin-left:5px;
+}
+
+.registered-users h1 {
+    padding-top: 70px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.registered-users table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registered-users th, .registered-users td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.registered-users th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
+.registered-users tr:hover {
+    background-color: #f9fafb;
+}
+
+
+/* Edit and Delete Buttons */
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #60a5fa;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background-color: #3b82f6;
+}
+
+.delete-button {
+    background-color: #ef4444;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
+}
+
+/* Form Styling */
+.user-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+
+.user-form .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.user-form .submit-button {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-form .submit-button:hover {
+    background-color: #0f766e;
+}
+
+.user-form .cancel-button {
+    background-color: #9ca3af;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-form .cancel-button:hover {
+    background-color: #6b7280;
+}
+
+/* Error Message */
+.error {
+    color: #ef4444;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Loading State */
+.loading {
+    font-size: 1rem;
+    color: #1e293b;
+    text-align: center;
+}

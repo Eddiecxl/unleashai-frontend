@@ -1,0 +1,600 @@
+/* Reset body and html margins and paddings */
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Remove horizontal scrolling */
+ 
+}
+
+/* Ensure all elements inherit box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --sidebar-width: clamp(150px, 15vw, 250px); /* Sidebar width adapts to screen */
+  --header-height: 70px; /* Default header height */
+}
+
+
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height */
+  margin-left: clamp(120px, 14vw, 250px); /* Ensure it matches sidebar */
+  width: calc(100vw - clamp(120px, 14vw, 250px)); /* Ensure it doesn't exceed width */
+  background: #ffffff;
+  overflow: hidden; /* Prevent scrolling inside */
+  padding-bottom: clamp(50px, 8vh, 74px); /* Adjust padding for input */
+  max-width: 100vw;
+}
+
+
+
+.chatbot-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw; /* Ensure it doesn’t exceed the viewport width */
+  padding: clamp(10px, 3vw, 10px);
+  padding-top: clamp(60px, 8vh, 80px); /* Ensure enough space below header-controls */
+  overflow-y: auto; /* Keep chat scrollable */
+  align-items: center;
+  background: #ffffff;
+}
+
+
+
+
+.chatbot-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chatbot-box::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 5px;
+}
+
+.chatbot-box::-webkit-scrollbar-track {
+  background: #f4f5f6;
+}
+
+
+
+.message-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 2vw, 10px); /* Space between logo and bubble */
+  max-width: 80%; /* Constrain the width of the messages */
+  margin: clamp(5px, 2vw, 10px) auto; /* Center-align the entire row */
+  justify-content: flex-start; /* Align content to the start (logo and message) */
+  padding: 0 clamp(10px, 3vw, 20px);
+}
+
+.bot-message .message-row,
+.user-message .message-row {
+  justify-content: space-between; /* Add space between logo and bubble */
+}
+
+
+.bot-message {
+  flex-direction: row; /* Bot messages appear from left to right */
+  margin-bottom: clamp(5px, 7vw, 10px);
+  margin-top: clamp(5px, 7vw, 10px);
+  justify-content: flex-start; /* Bot messages stay on the left side */
+  margin-right: auto; /* Push bot messages further to the left */
+  font-size: clamp(0.5rem, 2vw, 1rem); /* Dynamic font size */
+}
+
+.user-message {
+  flex-direction: row; /* User messages appear from right to left */
+  margin-bottom: clamp(5px, 7vw, 10px);
+  margin-top: clamp(5px, 7vw, 10px);
+  justify-content: flex-end; /* User messages stay on the right side */
+  margin-left: auto; /* Push user messages further to the right */
+  font-size: clamp(0.5rem, 2vw, 1rem); /* Dynamic font size */
+}
+
+
+.message-bubble {
+  max-width: clamp(200px, 70vw, 500px); /* Fix the bubble width */
+  width: fit-content; /* Ensures the bubble adjusts to text length but does not exceed max-width */
+  padding: clamp(8px, 2vw, 15px);
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  line-height: 1.5;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word; /* Ensures long words wrap within the bubble */
+  overflow-wrap: break-word; /* Modern equivalent for wrapping */
+  white-space: pre-wrap; /* Preserves spaces and breaks lines for long text */
+  overflow: hidden; /* Ensures no overflow beyond the bubble size */
+  display: inline-block; /* Prevents stretching of bubble */
+}
+
+.bot-message .message-bubble {
+  background: #e9e9e9;
+  color: #333;
+  text-align: left; /* Align text inside the bubble to the left */
+  font-size: clamp(0.5rem, 2vw, 1rem); /* Dynamic font size */
+}
+
+.user-message .message-bubble {
+  background: #0078d4;
+  color: white;
+  text-align: left; /* Align text inside the bubble to the left */
+  font-size: clamp(0.5rem, 2vw, 1rem); /* Dynamic font size */
+}
+
+.bot-logo,
+.user-logo {
+  width: clamp(30px, 4vw, 40px);
+  height: clamp(30px, 4vw, 40px);
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevent the logo from shrinking */
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-logo {
+  margin-left: clamp(5px, 2vw, 10px);
+}
+
+.bot-logo {
+  margin-right: clamp(5px, 2vw, 10px);
+  visibility: visible; /* Prevent it from disappearing */
+}
+
+
+.chatbot-input {
+  background: #ffffff; /* White background */
+  padding: clamp(6px, 2vw, 10px); /* Responsive padding */
+  display: grid;
+  grid-template-columns: 1fr auto; /* Input takes most space, button is auto-sized */
+  align-items: center;
+  position: fixed; /* Stays at the bottom */
+  bottom: 10px; /* Keep space from bottom */
+  left: calc(var(--sidebar-width, 250px) + 10px); /* Always start after sidebar */
+  right: 10px; /* Keep space on right */
+  width: calc(100% - var(--sidebar-width, 250px) - 20px); /* Adjust dynamically */
+  max-width: 700px; /* Prevent it from being too large */
+  border-radius: 16px; /* Smooth edges */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 100; /* Keep above other elements */
+  border: 1px solid #e0e0e0; /* Light border */
+  overflow: hidden; /* Prevent overflow */
+  margin: 0 auto; /* Center inside chatbot-box */
+}
+
+
+
+
+
+
+.chatbot-input input {
+  padding: clamp(8px, 2vw, 12px);
+  border: none;
+  border-radius: 12px 0 0 12px; /* Rounded edges only on the left */
+  background: #f8f9fa;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #333;
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+  max-height: 100px;
+  min-height: 36px;
+  width: 100%; /* Ensure it takes the full space */
+}
+
+
+.chatbot-input input:focus {
+  background: #ffffff; /* White background for focus */
+  border: 1px solid #0078d4; /* Subtle blue border on focus */
+}
+
+.chatbot-input input::placeholder {
+  color: #bbb; /* Light gray for placeholder text */
+}
+
+.chatbot-input button {
+  padding: clamp(6px, 2vw, 10px) clamp(12px, 3vw, 18px); /* Compact size */
+  background: #0078d4;
+  border: none;
+  border-radius: 0 12px 12px 0; /* Rounded edges only on the right */
+  color: white;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: bold;
+  box-shadow: none; /* Remove extra shadow */
+  transition: background 0.3s ease, transform 0.2s;
+  height: 100%; /* Make sure it fills the input box height */
+}
+
+
+.chatbot-input button:hover {
+  background: #005bb5; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+.chatbot-input button:active {
+  transform: scale(0.98); /* Button presses inwards slightly */
+}
+
+@media (max-width: 800px) {
+  .chatbot-input {
+    left: clamp(150px, 15vw, 200px); /* Ensure it never moves into the sidebar */
+    width: calc(100vw - clamp(150px, 15vw, 200px) - 20px);
+  }
+}
+
+
+
+
+
+
+.sidebar {
+  position: fixed;
+  margin-top: clamp(10px, 8vh, 30px); /* Ensure it starts below the header */
+  left: 0;
+  height: 100vh;
+  width: clamp(120px, 14vw, 250px); /* Sidebar shrinks on small screens */
+  max-width: 250px;
+  min-width: 80px; /* Prevent it from being too small */
+  background: #1e1e2f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(5px, 2vw, 15px);
+  border-right: 1px solid #3c3c45;
+  z-index: 100;
+  overflow-y: auto;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.sidebar h3 {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  margin-bottom: clamp(10px, 2vw, 20px);
+  color: #e0e0e0;
+  text-align: center; /* Center align the heading */
+}
+
+.sidebar button {
+  padding: clamp(8px, 2vw, 12px);
+  margin-bottom: clamp(8px, 2vw, 15px);
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s;
+
+  display: flex; /* Ensure proper text wrapping */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Ensure text is centered */
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Force wrapping if needed */
+  overflow-wrap: break-word; /* Ensure words wrap correctly */
+  max-width: 100%; /* Ensure button doesn’t stretch too much */
+  min-width: 60px; /* Prevent buttons from becoming too small */
+}
+
+
+.sidebar button:hover {
+  background: #005bb5;
+  transform: scale(1.05);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0; /* Add some margin for separation */
+}
+
+.sidebar ul li {
+  padding: clamp(8px, 2vw, 12px);
+  border-radius: 6px;
+  background: #3c3c45;
+  color: white;
+  margin-bottom: clamp(5px, 2vw, 10px);
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  transition: background 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  background: #575767;
+}
+
+.sidebar ul li.active {
+  background: #0078d4;
+  color: white;
+}
+
+.sidebar-footer {
+  margin-top: auto; /* Push footer content to the bottom */
+  text-align: center;
+  padding: clamp(5px, 2vw, 10px);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  color: #999;
+  border-top: 1px solid #3c3c45;
+  z-index:30000;
+}
+
+
+
+.sidebar .guest-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: clamp(20px, 4vw, 30px);
+  border-radius: 20px;
+  z-index: 200; /* Ensure it appears above the blurred sidebar */
+}
+
+.sidebar .guest-message p {
+  margin-bottom: clamp(8px, 2vw, 16px);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.sidebar .login-button,
+.sidebar .signup-button {
+  display: block;
+  margin: clamp(5px, 1vw, 8px) auto;
+  padding: clamp(6px, 2vw, 10px) clamp(12px, 3vw, 16px);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #fff;
+  background-color: #0078d4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  z-index:2;
+}
+
+.sidebar .login-button:hover,
+.sidebar .signup-button:hover {
+  background-color: #005bb5;
+}
+
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 101; /* Higher than sidebar and chatbot input */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: clamp(20px, 4vw, 30px);
+  border-radius: 10px;
+  width: clamp(280px, 60vw, 450px);
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 0.3s ease;
+  z-index: 102; /* Ensure it's above the overlay */
+}
+
+.modal-content h2 {
+  margin-bottom: clamp(10px, 3vw, 20px);
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  color: #333;
+  font-weight: bold;
+}
+
+.modal-content label {
+  display: block;
+  text-align: left;
+  margin: clamp(5px, 2vw, 10px) 0 clamp(2px, 1vw, 5px);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #666;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: clamp(8px, 2vw, 12px);
+  margin-bottom: clamp(8px, 2vw, 15px);
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  color: #333;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  outline: none;
+}
+
+.modal-content button {
+  padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 25px);
+  background: #0078d4;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+
+.modal-content button:hover {
+  background: #005bb5;
+  transform: scale(1.05);
+}
+
+.modal-content p span {
+  color: #0078d4; /* Blue color for link */
+  text-decoration: underline; /* Add underline for link-like appearance */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: color 0.2s ease;
+}
+
+.modal-content p span:hover {
+  color: #005bb5; /* Darker blue on hover */
+}
+
+
+/* Header Controls - Stay Below Header & Inside Chatbot */
+.header-controls {
+  width: 100%;
+  position: sticky; /* Stays at the top but below the header */
+  top: calc(60px); /* Adjust dynamically to the header height */
+  background-color: #f9f9f9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px); /* Responsive padding */
+  border-bottom: 1px solid #ccc;
+  z-index: 105;
+  min-height: 40px; /* Set a minimum height */
+  min-width: 300px; /* Ensures it won’t shrink beyond this */
+  padding-top: clamp(25px, 8vh, 15px);
+}
+
+
+
+
+@media (max-width: 600px) {
+  .header-controls {
+    top: calc(50px); /* Smaller height for header */
+    padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2vw, 15px); /* Reduce padding */
+  }
+
+  .chatbot-box {
+    padding-top: clamp(40px, 5vh, 60px); /* Reduce padding to keep alignment */
+  }
+}
+
+
+/* Dropdown Container */
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align dropdown on the left */
+}
+
+/* Label for the Dropdown */
+.dropdown-label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  max-width: calc(100% - clamp(10px, 5vw, 20px));
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Dropdown Hover and Focus State */
+.dropdown:hover,
+.dropdown:focus {
+  border-color: #0078d4;
+  background-color: #f0f8ff;
+}
+
+/* Dropdown Options */
+.dropdown option {
+  padding: 8px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Report Button - Fully Responsive */
+.report-button {
+  position: relative; /* Positioned within the header-controls container */
+  background: #f44336;
+  color: white;
+  padding: clamp(5px, 1vw, 12px) clamp(12px, 2vw, 20px); /* Dynamic padding */
+  border-radius: clamp(4px, 0.6vw, 8px); /* Responsive border-radius */
+  font-size: clamp(0.7rem, 1.2vw, 1rem); /* Dynamic font size */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  width: clamp(80px, 10vw, 120px); /* Button width adapts */
+  height: clamp(30px, 4vh, 45px); /* Button height adapts */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Button Hover and Active States */
+.report-button:hover {
+  background: #d32f2f; /* Darker red on hover */
+  transform: scale(1.05);
+}
+
+.report-button:active {
+  transform: scale(0.98);
+}
+
+
+@media (max-width: 500px) {
+  :root {
+    --header-height: 50px; /* Adjusted header height for smaller screens */
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

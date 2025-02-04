@@ -1,0 +1,307 @@
+/* General Styles for Login and Register */
+.login-register-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  color: #333; /* Dark text for contrast */
+  position: relative; /* Ensure proper positioning for forms */
+}
+
+/* Form Container: Both forms share the same position */
+.form-container {
+  position: absolute; /* Overlap both forms */
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 30px;
+  display: flex;
+  flex-direction: column; /* Stack form elements */
+  align-items: center; /* Center contents inside the container */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  visibility: visible;
+  z-index: 1; /* Ensure the visible form appears on top */
+}
+
+/* Hidden Form */
+.form-container.hidden {
+  opacity: 0;
+  visibility: hidden; /* Completely hides the form */
+  pointer-events: none; /* Prevent interaction with hidden forms */
+}
+
+/* Form Title */
+.form h2 {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333; /* Dark text for contrast */
+}
+
+/* Input Styles */
+.form input {
+  width: 97%; /* Keep inputs aligned */
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  color: #333; /* Dark text for contrast */
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form input::placeholder {
+  color: rgba(51, 51, 51, 0.6); /* Dark placeholder text */
+}
+
+.form input:focus {
+  border-color: #00bfa6; /* Highlight border on focus */
+}
+
+/* Button Styles */
+.form button {
+  width: 97%;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #00bfa6; /* Vibrant teal color */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+  background: #008f83; /* Darker teal on hover */
+  transform: scale(1.02); /* Slight scale effect */
+}
+
+.form button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+}
+
+/* Form Text Styles */
+.form p {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark text */
+  text-align: center; /* Center the text */
+}
+
+/* Switch Form Styles */
+.switch-form {
+  color: #00bfa6; /* Teal color for links */
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.switch-form:hover {
+  color: #008f83; /* Darker teal on hover */
+  text-decoration: underline;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333; /* Dark text for contrast */
+  font-family: 'Poppins', sans-serif;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 4px solid rgba(51, 51, 51, 0.3); /* Dark spinner */
+  border-top: 4px solid #00bfa6; /* Teal spinner */
+  border-radius: 50%;
+  width: 50px; /* Slightly larger spinner for visibility */
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px; /* Space between spinner and text */
+}
+
+/* Alert Styles */
+.alert-container {
+  position: fixed; /* Fix the alert to the viewport */
+  bottom: 50px; /* Place the alert 50px from the bottom */
+  left: 50%; /* Center the alert horizontally */
+  transform: translateX(-50%); /* Adjust horizontal alignment */
+  z-index: 1000;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.alert-center {
+  top: 50%;
+  bottom: unset;
+  transform: translate(-50%, -50%);
+}
+
+/* Verify Container */
+.verify-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Verify Title */
+.verify-title {
+  font-size: 1.5rem;
+  color: #333; /* Dark text for contrast */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Verify Instructions */
+.verify-instructions {
+  font-size: 1rem;
+  color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark text */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Verify Input */
+.verify-input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  color: #333; /* Dark text for contrast */
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.verify-input:focus {
+  border-color: #00bfa6; /* Highlight border on focus */
+}
+
+/* Verify Button */
+.verify-button {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #00bfa6; /* Vibrant teal color */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.verify-button:hover {
+  background: #008f83; /* Darker teal on hover */
+  transform: scale(1.02); /* Slight scale effect */
+}
+
+.verify-button:disabled {
+  background: #a9a9a9; /* Gray for disabled state */
+  cursor: not-allowed;
+}
+
+/* Timer Text */
+.timer-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark text */
+  text-align: center;
+}
+
+/* Back to Login Button */
+.back-to-login-button {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #3d3c3c; /* Dark gray for contrast */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-login-button:hover {
+  background: #50504f; /* Slightly lighter gray on hover */
+  transform: scale(1.02); /* Slight scale effect */
+}
+
+/* Verify Alert Styles */
+.verify-alert-container {
+  position: fixed;
+  bottom: 20px; /* Positioned 20px from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: fade-in 0.5s ease-out; /* Smooth fade-in animation */
+}
+
+.custom-verify-alert {
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 8px;
+}
+
+/* Success Alert */
+.verify-success .MuiAlert-root {
+  background-color: #d4edda; /* Light green for success */
+  color: #155724; /* Dark green text */
+}
+
+/* Error Alert */
+.verify-error .MuiAlert-root {
+  background-color: #f8d7da; /* Light red for error */
+  color: #721c24; /* Dark red text */
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

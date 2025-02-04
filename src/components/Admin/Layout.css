@@ -1,0 +1,90 @@
+/* Sidebar Styling */
+.admin-sidebar {
+    width: 200px; /* Fixed width for consistency */
+    height: 100vh; /* Full height for sidebar */
+    background-color: #1e293b;
+    color: #fff;
+    padding: 20px 10px; /* Adjust padding for better spacing */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    position: fixed; /* Sidebar remains fixed */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    overflow: hidden; /* Prevent overflow */
+    padding-top: 100px;
+}
+
+.admin-sidebar h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #10b981; /* Highlighted text color */
+    width: 100%; /* Ensure full width */
+    word-wrap: break-word; /* Handle long text */
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.admin-sidebar li {
+    margin: 10px 0; /* Space between items */
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.admin-sidebar li:hover {
+    background-color: #475569;
+    color: #10b981;
+}
+
+.admin-sidebar li .link {
+    display: flex; /* Make the link fill the parent */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    width: 100%; /* Full width for better clickability */
+    height: 100%; /* Full height for better clickability */
+    padding: 12px; /* Add padding for a clickable button feel */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    background-color: transparent; /* Default background */
+    border-radius: 6px; /* Rounded corners */
+    transition: all 0.1s ease;
+}
+
+.admin-sidebar li .link.active {
+    background-color: #10b981; /* Vibrant green for active state */
+    color: #ffffff; /* White text for contrast */
+    font-weight: bold; /* Emphasize the active link */
+    border-radius: 8px; /* Smooth rounded edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    transform: scale(1.1); /* Slight enlargement for emphasis */
+    transition: all 0.1s ease-in-out; /* Smooth transitions for hover and active effects */
+    padding: 12px 16px; /* Comfortable spacing for better clickability */
+    text-align: center; /* Ensure the text is centered */
+}
+
+
+/* Content Styling */
+.admin-content {
+    margin-left: 100px; /* Adjust for sidebar */
+    padding: 20px;
+    background-color: #f3f4f6; /* Light background */
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+

@@ -1,0 +1,309 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb); /* Static gradient */
+  background-size: 400% 400%;
+  animation: gradientBG 60s linear infinite;
+ /* Faster animation for more noticeable changes */
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.admin-page body::before {
+  display: none; /* Disable floating particles only in /admin pages */
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: clamp(6rem, 10vw, 8rem) clamp(2rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: bold;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(45deg, #0072ff, #00c6ff, #ff6f61, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%; /* Required for gradient animation */
+  animation: gradientText 5s ease infinite; /* Gradient animation for text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-description {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  color: #555;
+}
+
+.try-it-button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: clamp(0.8rem, 3vw, 1.5rem) clamp(1.5rem, 6vw, 3rem);
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.try-it-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Dashboard Preview */
+.dashboard-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-image {
+  width: 100%;
+  max-height: clamp(200px, 50vh, 400px);
+  object-fit: cover;
+}
+
+/* Clock Section */
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 3rem);
+  margin-top: clamp(5rem, 10vw, 8rem);
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  padding: 20px 0;
+
+}
+
+.clock-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(2rem, 5vw, 2rem);
+  width: 100%;
+  max-width: 80vw;
+}
+
+.clock-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 clamp(80px, 20vw, 200px);
+  min-width: 100px;
+}
+
+.time-label {
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  color: #333;
+  margin-bottom: clamp(5px, 1vw, 10px);
+}
+
+.number {
+  display: inline-block;
+  font-size: clamp(3rem, 8vw, 10rem);
+  font-weight: bold;
+  color: #007bff;
+  line-height: 1.2;
+}
+
+.quote {
+  font-size: clamp(1rem, 4vw, 1.7rem);
+  font-weight: 500;
+  text-align: center;
+  color: #333;
+  max-width: 1000px;
+  line-height: 1.6;
+  margin: clamp(1rem, 5vw, 2rem) auto;
+}
+
+/* Trusted Companies Section */
+.trusted-companies {
+  text-align: center;
+  padding: clamp(10rem, 10vw, 8rem) clamp(2rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(10px);
+  margin: 0;
+}
+
+.trusted-title {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #666;
+  margin-bottom: clamp(0rem, 1vw, 2rem);
+  font-weight: 500;
+}
+
+.trusted-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.logo {
+  max-width: clamp(200px, 30vw, 300px);
+  height: auto;
+  opacity: 0.9;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: clamp(2rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+  backdrop-filter: blur(10px);
+  margin: 0;
+}
+
+.faq-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+  color: #333;
+  text-align: center;
+}
+
+.faq-container {
+  max-width: 90vw;
+  max-width: clamp(300px, 80vw, 800px);
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.faq-item {
+  border-radius: 5px;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.faq-item:hover {
+  background: rgba(249, 249, 249, 0.9); /* Slightly transparent */
+  transform: scale(1.02);
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.faq-question {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 500;
+  color: #020202;
+}
+
+.faq-arrow {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+.faq-arrow.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #666;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+/* Footer Section */
+.footer {
+  text-align: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  background: rgba(255, 255, 255, 0.7); /* Slightly transparent */
+  backdrop-filter: blur(10px);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #818181;
+}
+
+.footer-links {
+  display: flex;
+  gap: clamp(0.5rem, 3vw, 1rem);
+}
+
+.footer-links a {
+  color: #818181;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.contact {
+  display: flex;
+  justify-content: flex-end;
+  gap: clamp(0.5rem, 3vw, 1rem);
+}
+
+.contact a:hover {
+  color: #007bff;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #818181;
+  margin-top: clamp(1rem, 2vw, 2rem);
+}

@@ -1,0 +1,244 @@
+/* Reset body and html margins and paddings */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent unwanted horizontal scrolling */
+}
+
+/* Ensure all elements inherit box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* HEADER */
+.header {
+  position: fixed; /* Ensure the header stays fixed on top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the viewport */
+  z-index: 1100; /* Ensure it stays above other elements */
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Keep all items in a row */
+  justify-content: space-between; /* Space out left, center, and right sections */
+  align-items: center;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  box-sizing: border-box;
+  min-height: 50px;
+  height: auto;
+  gap: clamp(0.2rem, 1vw, 0.8rem); /* Reduce spacing dynamically */
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+/* Ensure enough padding for content below header */
+body {
+  margin: 0;
+  padding-top: 70px; /* Adjust padding equal to the header height */
+}
+
+/* Header Left - Logo */
+.header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.3rem, 1vw, 0.8rem); /* Reduce gap */
+  min-width: 100px;
+  flex-shrink: 1; /* Allow shrinking */
+}
+
+/* Logo Link */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Logo Image */
+.logo-image {
+  height: clamp(1.5rem, 6vw, 2.5rem);
+  width: auto;
+  flex-shrink: 1; /* Allow shrinking */
+}
+
+/* Logo Text */
+.logo-text {
+  font-size: clamp(0.8rem, 3vw, 1.3rem);
+  font-weight: bold;
+  color: #050505;
+  flex-shrink: 1; /* Allow shrinking */
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1; /* Allow shrinking */
+  gap: clamp(0.3rem, 2vw, 1rem);
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Navigation Links */
+.nav-link {
+  text-decoration: none;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  color: #555;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* AUTH BUTTONS */
+.auth-buttons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.3rem, 1vw, 0.8rem);
+  min-width: 100px;
+  flex-shrink: 1; /* Allow shrinking */
+}
+
+/* Sign-in and Logout Buttons */
+.sign-in,
+.logout-button {
+  background: none;
+  border: 1px solid #007bff;
+  padding: clamp(0.2rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  border-radius: 5px;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  cursor: pointer;
+  color: #007bff;
+  transition: background 0.3s, color 0.3s;
+  min-width: 40px; /* Prevent buttons from being too small */
+  flex-shrink: 1;
+}
+
+.sign-in:hover,
+.logout-button:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* USERNAME */
+.user-name {
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-weight: bold;
+  color: #333;
+  margin-right: clamp(0.3rem, 1vw, 0.8rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: clamp(80px, 15vw, 200px);
+  flex-shrink: 1;
+}
+
+/* LOGOUT MODAL */
+.logout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200; /* Keep above other elements */
+}
+
+/* Logout Modal Content */
+.logout-modal-content {
+  background: #ffffff;
+  padding: clamp(1rem, 4vw, 2rem);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: clamp(280px, 60vw, 400px); /* Ensure responsiveness */
+  max-width: 90%;
+}
+
+/* Modal Heading */
+.logout-modal-content h2 {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: clamp(1rem, 4vw, 1.5rem);
+  color: #333;
+}
+
+/* Logout Modal Buttons */
+.logout-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 4vw, 1rem);
+  margin-top: clamp(1rem, 4vw, 2rem);
+}
+
+/* Confirm & Cancel Buttons */
+.logout-confirm,
+.logout-cancel {
+  display: inline-block;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+  min-width: clamp(5rem, 20vw, 8rem);
+}
+
+/* Cancel Button */
+.logout-cancel {
+  background: #43a047;
+}
+
+/* Button Hover Effects */
+.logout-confirm:hover {
+  background: #e53935;
+}
+
+.logout-cancel:hover {
+  background: #388e3c;
+}
+
+
+
+/* RESPONSIVE FIXES */
+@media (max-width: 500px) {
+  .header {
+    gap: 0.3rem; /* Reduce space between elements */
+    padding: 0.5rem;
+  }
+
+  .header-left {
+    min-width: 80px;
+  }
+
+  .nav {
+    gap: 0.2rem; /* Reduce gap further */
+  }
+
+  .auth-buttons {
+    gap: 0.2rem;
+  }
+
+  .sign-in,
+  .logout-button {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .user-name {
+    max-width: 100px;
+  }
+}

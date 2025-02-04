@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.64cf41bb.css",
+    "main.js": "/static/js/main.8cf83b84.js",
+    "static/js/488.2d716171.chunk.js": "/static/js/488.2d716171.chunk.js",
+    "static/media/globalvaccine.jpg": "/static/media/globalvaccine.72a70631683aecbcb417.jpg",
+    "static/media/uoa.png": "/static/media/uoa.95095d4b08b2110e9261.png",
+    "static/media/dumb.png": "/static/media/dumb.97cbe3e58c6e7d4c27e3.png",
+    "static/media/ru.jpg": "/static/media/ru.be537d8374b33c1bc275.jpg",
+    "index.html": "/index.html",
+    "main.64cf41bb.css.map": "/static/css/main.64cf41bb.css.map",
+    "main.8cf83b84.js.map": "/static/js/main.8cf83b84.js.map",
+    "488.2d716171.chunk.js.map": "/static/js/488.2d716171.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64cf41bb.css",
+    "static/js/main.8cf83b84.js"
+  ]
+}
